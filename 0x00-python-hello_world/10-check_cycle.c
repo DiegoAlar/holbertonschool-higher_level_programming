@@ -10,7 +10,7 @@ int check_cycle(listint_t *list)
 	listint_t *tort = list;
 	listint_t *lieb = list;
 
-	if (tort->next && tort->next->next && list)
+	if (list && list->next && list->next->next)
 	{
 		do {
 			tort = tort->next;
