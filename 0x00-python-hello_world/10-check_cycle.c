@@ -10,15 +10,13 @@ int check_cycle(listint_t *list)
 	listint_t *tort = list;
 	listint_t *lieb = list;
 
-	if (list && list->next && list->next->next)
+	while (lieb && lieb->next && lieb->next->next)
 	{
-		do {
-			tort = tort->next;
-			lieb = lieb->next->next;
+		lieb = lieb->next->next;
+		tort = tort->next;
 
-			if (tort == lieb)
-				return (1);
-		} while (tort->next && lieb->next->next);
+		if (tort == lieb)
+			return (1);
 	}
 	return (0);
 }
