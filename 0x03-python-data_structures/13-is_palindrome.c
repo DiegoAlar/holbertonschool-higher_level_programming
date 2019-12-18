@@ -30,19 +30,16 @@ int is_palindrome(listint_t **head)
 		{
 			c++;
 			t2 = t2->next;
+			continue;
 		}
-		if (c < (cont / 2))
-		{
+		if (c <= (cont / 2))
 			total += t2->n;
-		}
 		else
-		{
 			total -= t2->n;
-		}
 		c++;
 		t2 = t2->next;
 	}
-	if (total)
+	if (total == 0)
 		return (1);
 	else
 		return (0);
