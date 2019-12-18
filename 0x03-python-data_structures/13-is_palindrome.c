@@ -14,7 +14,7 @@ int is_palindrome(listint_t **head)
 	int total = 0;
 
 	if (!(*head))
-		return (0);
+		return (1);
 	while (t1->next)
 	{
 		cont++;
