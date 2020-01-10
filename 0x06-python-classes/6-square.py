@@ -26,10 +26,6 @@ class Square:
     def size(self):
         return self.__size
 
-    @property
-    def position(self):
-        return self.__position
-
     @size.setter
     def size(self, size):
         if type(size) != int:
@@ -39,7 +35,11 @@ class Square:
         else:
             self.__size = size
 
-    @size.setter
+    @property
+    def position(self):
+        return (self.__position)
+
+    @position.setter
     def position(self, position):
         if type(position) == tuple and len(position) == 2 and\
             type(position[0]) == int and type(position[1]) == int and\
