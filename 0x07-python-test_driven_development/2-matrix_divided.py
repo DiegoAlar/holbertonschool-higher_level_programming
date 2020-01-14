@@ -1,16 +1,22 @@
 #!/usr/bin/python3
-""" this module contains only one function """
+""" This module contains function matrix_divided
+        Args:
+            matrix (list): a list
+            div (int): number to divide each item of list
+"""
 
 
 def matrix_divided(matrix, div):
-    """ function that divides all elements of a matrix """
+    """
+            Function that divides all elements of a matrix
+    """
     new_list = []
     new_m = []
     err_mge = "matrix must be a matrix (list of lists) of integers/floats"
     if type(matrix) is not list:
-            raise TypeError(err_mge)
+        raise TypeError(err_mge)
     elif type(matrix[0]) is not list or len(matrix[0]) is 0:
-            raise TypeError(err_mge)
+        raise TypeError(err_mge)
     lon = len(matrix[0])
     if type(div) is not int and type(div) is not float:
         raise TypeError("div must be a number")

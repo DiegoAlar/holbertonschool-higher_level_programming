@@ -1,5 +1,11 @@
 #!/usr/bin/python3
-""" this module only contains print_square function """
+"""
+    This module only contains print_square function
+        Args:
+            size (int): the size of the square
+"""
+
+
 def print_square(size):
     """
     function that prints a square with the character #
