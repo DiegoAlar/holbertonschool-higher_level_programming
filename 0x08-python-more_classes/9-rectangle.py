@@ -8,6 +8,7 @@ class Rectangle:
             Class that defines a rectangle
     """
     number_of_instances = 0
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         """ Init method to initialized private variables
@@ -32,8 +33,8 @@ class Rectangle:
     def __str__(self):
         if self.width is 0 or self.height is 0:
             return ""
-        return (("#" * self.width + '\n') *
-                (self.height - 1) + "#" * self.width)
+        return ((str(self.print_symbol) * self.width + '\n') *
+                (self.height - 1) + str(self.print_symbol) * self.width)
 
     def __repr__(self):
         return ("Rectangle({}, {})".format(self.width, self.height))
@@ -68,15 +69,37 @@ class Rectangle:
         else:
             self.__height = height
 
+    @classmethod
+    def square(cls, size=0):
+        """
+        Returns a new Rectangle instance with width == height == size
+        """
+        return cls(size, size)
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """ Returns the biggest rectangle based on the area
+        """
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() > rect_2.area():
+            return rect_1
+        elif rect_1.area() == rect_2.area():
+            return rect_1
+        else:
+            return rect_2
+
     def area(self):
         """
-        Public instance method that returns the area of rectangle
+            Public instance method that returns the area of rectangle
         """
         return self.__width * self.__height
 
     def perimeter(self):
         """
-        Public instance function that returns the rectangles's perimeter
+            Public instance function that returns the rectangles's perimeter
         """
         if self.__width is 0 or self.__height is 0:
             return 0

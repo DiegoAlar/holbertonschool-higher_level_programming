@@ -70,7 +70,7 @@ class Rectangle:
 
     def perimeter(self):
         """
-                Public instance function that returns the rectangles's perimeter
+        Public instance function that returns the rectangles's perimeter
         """
         if self.__width is 0 or self.__height is 0:
             return 0

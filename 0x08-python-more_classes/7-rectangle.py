@@ -71,13 +71,13 @@ class Rectangle:
 
     def area(self):
         """
-                Public instance method that returns the area of rectangle
+        Public instance method that returns the area of rectangle
         """
         return self.__width * self.__height
 
     def perimeter(self):
         """
-                Public instance function that returns the rectangles's perimeter
+        Public instance function that returns the rectangles's perimeter
         """
         if self.__width is 0 or self.__height is 0:
             return 0
