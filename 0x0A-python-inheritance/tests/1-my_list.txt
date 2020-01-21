@@ -3,6 +3,10 @@ Import module:
 
 case: empty list
 >>> my_list = MyList()
+print(my_list)
+[]
+
+>>> my_list = MyList()
 >>> my_list.print_sorted()
 []
 
