@@ -5,7 +5,7 @@
 
 def read_lines(filename="", nb_lines=0):
     """ this module read lines of a file given the number of lines
-        Args: 
+        Args:
             filename (file): to file to be opened
             nb_lines (int): number of lines to be printed
     """
