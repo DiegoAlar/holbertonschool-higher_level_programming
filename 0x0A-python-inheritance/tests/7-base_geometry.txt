@@ -1,0 +1,31 @@
+import module:
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+case: sending a bool
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("boolean", True)
+
+case: sending a list
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("a_tuple", (1, 2))
+Traceback (most recent call last):
+TypeError: a_tuple must be an integer
+
+case: sending a character
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("a_char", 'a')
+Traceback (most recent call last):
+TypeError: a_char must be an integer
+
+case: sending a float
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("a_float", 1.5)
+Traceback (most recent call last):
+TypeError: a_float must be an integer
+
+case: sending a float
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
