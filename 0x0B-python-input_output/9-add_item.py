@@ -16,6 +16,5 @@ if not os.path.exists(filename):
 else:
     json_file = load_from_json_file(filename)
     for item in range(1, len(sys.argv)):
-        if sys.argv[item] not in json_file:
-            json_file.append(sys.argv[item])
+        json_file.append(sys.argv[item])
     save_to_json_file(json_file, filename)
