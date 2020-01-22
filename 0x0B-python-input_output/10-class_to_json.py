@@ -11,5 +11,4 @@ def class_to_json(obj):
         Args:
             obj (obj): an instance of a class
     """
-    import json
-    return json.dumps(obj.__dict__)
+    return obj.__dict__
