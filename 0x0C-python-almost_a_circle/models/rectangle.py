@@ -11,6 +11,7 @@ class Rectangle(Base):
     """
     This class defines a Rectangle
     """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Constructor of Rectangle class
@@ -63,11 +64,64 @@ class Rectangle(Base):
         self.__input_validator(a_dict)
         self.__y = y
 
-    def __input_validator(self, a_dict):
-        """ private method to validate user's inpu
+    def area(self):
+        """ returns the area value of the Rectangle instance
+        """
+        return self.width * self.height
+
+    def display(self):
+        """ prints in stdout the Rectangle instance with the character #
+        """
+        mg_w = self.width
+        mg_h = self.height
+        str_to_prt = "\n" * self.y + (" " * self.x + "#" * mg_w + '\n') * mg_h
+        print(str_to_prt[:-1])
+
+    def __str__(self):
+        """ overrides str function to print str representation of class
+            rectangle
+        """
+        mge = "[Rectangle] ({}) {}/{} - {}/{}"
+        return mge.format(self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args, **kwargs):
+        """ Assigns an argument to each attribute
+        """
+        list_args = ["id", "width", "height", "x", "y"]
+        count = 0
+        a_dict = {}
+
+        if args:
+            if len(args) > 0 and len(args) < 6:
+                for arg in args:
+                    a_dict.update({list_args[count]: arg})
+                    count += 1
+                self.__input_validator(a_dict)
+                self.__update_args(a_dict)
+        elif kwargs:
+            self.__input_validator(kwargs)
+            self.__update_args(kwargs)
+
+    def __update_args(self, a_dict):
+        """ Private method to update args given *args or **kwargs
         """
         for k, v in a_dict.items():
-            if type(v) is not int:
+            if k is "id":
+                self.id = v
+            elif k is "width":
+                self.__width = v
+            elif k is "height":
+                self.__height = v
+            elif k is "x":
+                self.__x = v
+            elif k is "y":
+                self.__y = v
+
+    def __input_validator(self, a_dict):
+        """ private method to validate user's input
+        """
+        for k, v in a_dict.items():
+            if not isinstance(v, int):
                 raise TypeError("{} must be an integer".format(k))
             elif k is "width" and v < 1:
                 raise ValueError("{} must be > 0".format(k))
