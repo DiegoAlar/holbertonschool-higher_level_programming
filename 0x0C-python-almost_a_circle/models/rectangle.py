@@ -17,7 +17,7 @@ class Rectangle(Base):
         Constructor of Rectangle class
         """
         __dict_args = {"width": width, "height": height, "x": x, "y": y}
-        self.__input_validator(__dict_args)
+        self.input_validator(__dict_args)
         self.__width = width
         self.__height = height
         self.__x = x
@@ -31,7 +31,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, width):
         a_dict = {"width": width}
-        self.__input_validator(a_dict)
+        self.input_validator(a_dict)
         self.__width = width
 
     @property
@@ -41,7 +41,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, height):
         a_dict = {"height": height}
-        self.__input_validator(a_dict)
+        self.input_validator(a_dict)
         self.__height = height
 
     @property
@@ -51,7 +51,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, x):
         a_dict = {"x": x}
-        self.__input_validator(a_dict)
+        self.input_validator(a_dict)
         self.__x = x
 
     @property
@@ -61,7 +61,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, y):
         a_dict = {"y": y}
-        self.__input_validator(a_dict)
+        self.input_validator(a_dict)
         self.__y = y
 
     def area(self):
@@ -96,13 +96,13 @@ class Rectangle(Base):
                 for arg in args:
                     a_dict.update({list_args[count]: arg})
                     count += 1
-                self.__input_validator(a_dict)
-                self.__update_args(a_dict)
+                self.input_validator(a_dict)
+                self.update_args(a_dict)
         elif kwargs:
-            self.__input_validator(kwargs)
-            self.__update_args(kwargs)
+            self.input_validator(kwargs)
+            self.update_args(kwargs)
 
-    def __update_args(self, a_dict):
+    def update_args(self, a_dict):
         """ Private method to update args given *args or **kwargs
         """
         for k, v in a_dict.items():
@@ -117,7 +117,18 @@ class Rectangle(Base):
             elif k is "y":
                 self.__y = v
 
-    def __input_validator(self, a_dict):
+    def to_dictionary(self):
+        """ Returns the dictionary representation of a Rectangle:
+        """
+        a_dictionary = {
+            "x": self.x,
+            "y": self.y,
+            "id": self.id,
+            "height": self.height,
+            "width": self.width}
+        return a_dictionary
+
+    def input_validator(self, a_dict):
         """ private method to validate user's input
         """
         for k, v in a_dict.items():
