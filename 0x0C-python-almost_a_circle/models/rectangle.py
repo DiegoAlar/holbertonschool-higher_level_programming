@@ -95,8 +95,8 @@ class Rectangle(Base):
             if len(args) > 0 and len(args) < 6:
                 for arg in args:
                     a_dict.update({list_args[count]: arg})
-                    count += 1
                     setattr(self, list_args[count], arg)
+                    count += 1
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
