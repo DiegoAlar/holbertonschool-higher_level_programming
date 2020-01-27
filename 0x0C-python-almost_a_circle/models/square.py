@@ -69,19 +69,6 @@ class Square(Rectangle):
                 "y": self.y}
         return a_dict
 
-    def input_validator(self, a_dict):
-        """ private method to validate user's input
-        """
-        for k, v in a_dict.items():
-            if not isinstance(v, int):
-                raise TypeError("{} must be an integer".format(k))
-            elif k is "size" and v < 1:
-                raise ValueError("{} must be > 0".format(k))
-            elif k is "x" and v < 0:
-                raise ValueError("{} must be >= 0".format(k))
-            elif k is "y" and v < 0:
-                raise ValueError("{} must be >= 0".format(k))
-
     def __str__(self):
         """ String representation of the Square class
         """
