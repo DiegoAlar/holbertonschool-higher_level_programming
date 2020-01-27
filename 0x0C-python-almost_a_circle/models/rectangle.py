@@ -130,7 +130,6 @@ class Rectangle(Base):
     def input_validator(self, a_dict):
         """ private method to validate user's input
         """
-        print("entered")
         for k, v in a_dict.items():
             if not isinstance(v, int):
                 raise TypeError("{} must be an integer".format(k))
