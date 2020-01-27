@@ -63,7 +63,7 @@ class Base:
             dummy_obj = cls(1, 1)
         elif cls.__name__ == "Square":
             dummy_obj = cls(1)
-        dummy_obj.update(dictionary)
+        dummy_obj.update(**dictionary)
         return dummy_obj
 
     @classmethod

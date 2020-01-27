@@ -41,11 +41,10 @@ class Square(Rectangle):
                 for arg in args:
                     a_dict.update({list_args[count]: arg})
                     count += 1
-                self.input_validator(a_dict)
-                self.update_args(a_dict)
+                    setattr(self, list_args[count], arg)
         elif kwargs:
-            self.input_validator(kwargs)
-            self.update_args(kwargs)
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def update_args(self, a_dict):
         """ Private method to update args given *args or **kwargs
@@ -60,6 +59,16 @@ class Square(Rectangle):
             elif k is "y":
                 self.y = v
 
+    def to_dictionary(self):
+        """ Returns the dictionary representation of a Square
+        """
+        a_dict = {
+                "id": self.id,
+                "size": self.size,
+                "x": self.x,
+                "y": self.y}
+        return a_dict
+
     def input_validator(self, a_dict):
         """ private method to validate user's input
         """
@@ -72,16 +81,6 @@ class Square(Rectangle):
                 raise ValueError("{} must be >= 0".format(k))
             elif k is "y" and v < 0:
                 raise ValueError("{} must be >= 0".format(k))
-
-    def to_dictionary(self):
-        """ Returns the dictionary representation of a Square
-        """
-        a_dict = {
-                "id": self.id,
-                "size": self.size,
-                "x": self.x,
-                "y": self.y}
-        return a_dict
 
     def __str__(self):
         """ String representation of the Square class

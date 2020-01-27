@@ -96,11 +96,10 @@ class Rectangle(Base):
                 for arg in args:
                     a_dict.update({list_args[count]: arg})
                     count += 1
-                self.input_validator(a_dict)
-                self.update_args(a_dict)
+                    setattr(self, list_args[count], arg)
         elif kwargs:
-            self.input_validator(kwargs)
-            self.update_args(kwargs)
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def update_args(self, a_dict):
         """ Private method to update args given *args or **kwargs
@@ -131,10 +130,11 @@ class Rectangle(Base):
     def input_validator(self, a_dict):
         """ private method to validate user's input
         """
+        print("entered")
         for k, v in a_dict.items():
             if not isinstance(v, int):
                 raise TypeError("{} must be an integer".format(k))
-            elif k is "width" and v < 1:
+            elif k == "width" and v < 1:
                 raise ValueError("{} must be > 0".format(k))
             elif k is "height" and v < 1:
                 raise ValueError("{} must be > 0".format(k))
