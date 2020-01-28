@@ -87,3 +87,39 @@ class Base:
             return list_inst
         else:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ text
+        """
+        import json
+        obj_list = []
+
+        if list_objs is not None:
+            for obj in list_objs:
+                obj_list.append(obj.to_dictionary())
+        json_dictionary = cls.to_json_string(obj_list)
+        with open(cls.__name__ + ".csv", "w", encoding="utf-8") as my_file:
+            my_file.write(json_dictionary)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ Text
+        """
+        import json
+        import os
+
+        if cls.__name__ == "Rectangle":
+            file_path = "Rectangle.csv"
+        elif cls.__name__ == "Square":
+            file_path = "Square.csv"
+
+        if os.path.exists(file_path):
+            list_inst = []
+            with open(file_path, "r", encoding="utf-8") as my_file:
+                json_data = cls.from_json_string(my_file.read())
+            for obj in json_data:
+                list_inst.append(cls.create(**obj))
+            return list_inst
+        else:
+            return []
