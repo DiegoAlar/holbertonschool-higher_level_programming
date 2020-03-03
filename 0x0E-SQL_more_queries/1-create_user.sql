@@ -1,0 +1,4 @@
+-- script that creates the MySQL server user user_0d_1
+-- CREATED USER user_0d_1 with pass user_0d_1_pwd
+CREATE USER 'user_0d_1'@'localhost'
+IDENTIFIED BY 'user_0d_1_pwd';
