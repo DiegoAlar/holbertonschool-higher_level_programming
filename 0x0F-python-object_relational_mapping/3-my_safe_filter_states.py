@@ -18,8 +18,8 @@ if __name__ == "__main__":
         cur.execute(
             "SELECT *\
              FROM `states`\
-             WHERE `name` LIKE \"{}\"\
-             ORDER by id".format(sys.argv[4]))
+             WHERE `name` = %s\
+             ORDER by states.id ASC", (sys.argv[4],))
         rows = cur.fetchall()
         for col in rows:
             print(col)
