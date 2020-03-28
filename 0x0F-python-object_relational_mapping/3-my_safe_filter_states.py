@@ -17,7 +17,7 @@ if __name__ == "__main__":
         cur = db.cursor()
         cur.execute(
             "SELECT *\
-             FROM states\
+             FROM `states`\
              WHERE `name` LIKE \"{}\"\
              ORDER by id".format(sys.argv[4]))
         rows = cur.fetchall()
