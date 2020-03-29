@@ -23,9 +23,7 @@ if __name__ == "__main__":
     City.states = relationship(
         "State",
         order_by=State.id,
-        back_populates="cities",
-        single_parent=True,
-        cascade="all, delete, delete-orphan")
+        back_populates="cities")
     Base.metadata.create_all(engine)
     cal = State(name='California')
     cal.cities = [City(name='San Francisco')]
