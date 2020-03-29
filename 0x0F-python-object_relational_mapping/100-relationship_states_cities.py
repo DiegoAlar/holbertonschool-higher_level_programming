@@ -20,10 +20,11 @@ if __name__ == "__main__":
     from sqlalchemy.orm import sessionmaker
     Session = sessionmaker(bind=engine)
     session = Session()
-    City.states = relationship(
-        "State",
-        order_by=State.id,
-        back_populates="cities")
+    City.states = relationship(State, primaryjoin=City.state_id==State.id, back_populates="cities")
+#    City.states = relationship(
+#       "State",
+#        order_by=State.id,
+#        back_populates="cities")
     Base.metadata.create_all(engine)
     cal = State(name='California')
     cal.cities = [City(name='San Francisco')]
