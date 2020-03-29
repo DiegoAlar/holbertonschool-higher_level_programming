@@ -25,7 +25,7 @@ if __name__ == "__main__":
         order_by=State.id,
         back_populates="cities")
     Base.metadata.create_all(engine)
-    cal = State(name='California')
-    cal.cities = [City(name='San Francisco')]
+    cal = State(name="California")
+    cal.cities = [City(name="San Francisco")]
     session.add(cal)
     session.commit()
