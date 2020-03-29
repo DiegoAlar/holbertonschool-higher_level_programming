@@ -3,7 +3,7 @@
      a State and an instance Base = declarative_base():\
 """
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 from sqlalchemy import Column, Integer, String
 Base = declarative_base()
 
@@ -18,5 +18,5 @@ class State(Base):
 
     cities = relationship(
         "City",
-        back_populates='states',
-        cascade="all, delete-orphan")
+        backref='state',
+        cascade="all, delete")

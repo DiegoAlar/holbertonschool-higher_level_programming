@@ -5,8 +5,9 @@
 import sys
 from relationship_state import Base, State
 from relationship_city import City
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, aliased, backref
 from sqlalchemy import (create_engine)
+#state = aliased(State)
 
 if __name__ == "__main__":
     engine = create_engine(
@@ -20,10 +21,6 @@ if __name__ == "__main__":
     from sqlalchemy.orm import sessionmaker
     Session = sessionmaker(bind=engine)
     session = Session()
-    City.states = relationship(
-        "State",
-        order_by=State.id,
-        back_populates="cities")
     Base.metadata.create_all(engine)
     cal = State(name="California")
     cal.cities = [City(name="San Francisco")]
