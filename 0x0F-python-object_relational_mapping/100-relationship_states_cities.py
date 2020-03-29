@@ -26,3 +26,4 @@ if __name__ == "__main__":
     cal.cities = [City(name="San Francisco")]
     session.add(cal)
     session.commit()
+    session.close()
