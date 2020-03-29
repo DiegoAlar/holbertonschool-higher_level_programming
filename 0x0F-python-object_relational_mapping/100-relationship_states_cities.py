@@ -5,9 +5,7 @@
 import sys
 from relationship_state import Base, State
 from relationship_city import City
-from sqlalchemy.orm import relationship, aliased, backref
 from sqlalchemy import (create_engine)
-#state = aliased(State)
 
 if __name__ == "__main__":
     engine = create_engine(
