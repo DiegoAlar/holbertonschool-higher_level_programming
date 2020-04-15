@@ -7,16 +7,14 @@ if __name__ == "__main__":
     import requests
     import sys
     url = 'http://0.0.0.0:5000/search_user'
-    if len(sys.argv) > 1:
+    if len(sys.argv) == 2:
         letter = {'q': sys.argv[1]}
-    else:
-        letter = {'q': ""}
-    r = requests.post(url, data=letter)
-    a_dict = r.json()
-    if a_dict is not None:
-        try:
-            print("[{}] {}".format(a_dict['id'], a_dict['name']))
-        except ValueError:
-            print("Not a valid JSON")
+        r = requests.post(url, data=letter)
+        if r.json is not None:
+            try:
+                a_dict = r.json
+                print("[{}] {}".format(a_dict['id'], a_dict['name']))
+            except ValueError:
+                print("Not a valid JSON")
     else:
         print('No result')
