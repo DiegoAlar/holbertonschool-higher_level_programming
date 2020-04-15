@@ -14,10 +14,11 @@ if __name__ == "__main__":
     r = requests.post(url, data=letter)
     r.encoding = 'utf-8'
     a_dict = r.json()
-    if type(a_dict == dict):
+    if a_dict is not None:
         if len(a_dict) == 0:
             print('No result')
         else:
-            print("[{}] {}".format(a_dict['id'], a_dict['name']))
-    else:
-        print('Not a valid JSON')
+            try:
+                print("[{}] {}".format(a_dict['id'], a_dict['name']))
+            except ValueError:
+                print("Not a valid JSON")
