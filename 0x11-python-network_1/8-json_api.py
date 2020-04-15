@@ -12,7 +12,7 @@ if __name__ == "__main__":
         r = requests.post(url, data=letter)
         if r.json is not None:
             try:
-                a_dict = r.json
+                a_dict = r.json()
                 print("[{}] {}".format(a_dict['id'], a_dict['name']))
             except ValueError:
                 print("Not a valid JSON")
