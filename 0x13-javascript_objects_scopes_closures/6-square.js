@@ -7,7 +7,7 @@ class Square extends Rectangle {
 
   charPrint (c) {
     let charPrint;
-    if (c) {
+    if (c && typeof c === 'string') {
       charPrint = c;
     } else {
       charPrint = 'X';
