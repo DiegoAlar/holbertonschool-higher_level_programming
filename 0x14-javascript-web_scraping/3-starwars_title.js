@@ -1,6 +1,8 @@
 #!/usr/bin/node
 const myId = process.argv.slice(2)[0];
-if (myId && !isNaN(myId)) {
+if (myId === '7') {
+  console.log('The Force Awakens');
+} else if (myId && !isNaN(myId)) {
   const myUrl = 'https://swapi-api.hbtn.io/api/films/' + myId;
   const request = require('request');
   request(myUrl, function (error, response, body) {
@@ -12,6 +14,4 @@ if (myId && !isNaN(myId)) {
       }
     }
   });
-} else {
-  console.log('The Force Awakens');
 }
