@@ -17,6 +17,6 @@ request(url, function (error, response, body) {
         }
       }
     }
-    console.log(listCharsId.length + 1);
+    console.log(listCharsId.length);
   }
 });
