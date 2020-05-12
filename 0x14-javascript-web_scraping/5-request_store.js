@@ -8,7 +8,6 @@ request(url, function (error, response, body) {
   if (error) {
     console.error('error:', error);
   }
-  console.log(body);
   fs.writeFile(myFile, body, 'utf8', function (err) {
     if (err) {
       console.error(err);
