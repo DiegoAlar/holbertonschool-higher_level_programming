@@ -7,7 +7,9 @@ if (myId) {
     if (error) {
       console.log(error);
     } else {
-      console.log(JSON.parse(body).title);
+      if (JSON.parse(body).title) {
+        console.log(JSON.parse(body).title);
+      }
     }
   });
 }
