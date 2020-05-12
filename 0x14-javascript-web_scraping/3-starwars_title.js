@@ -12,4 +12,6 @@ if (myId && !isNaN(myId)) {
       }
     }
   });
+} else {
+  console.log('The Force Awakens');
 }
