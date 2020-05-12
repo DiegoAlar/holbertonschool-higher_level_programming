@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const myId = process.argv.slice(2)[0];
+const myId = parseInt(process.argv.slice(2)[0]);
 if (myId) {
   const myUrl = 'https://swapi-api.hbtn.io/api/films/' + myId;
   const request = require('request');
